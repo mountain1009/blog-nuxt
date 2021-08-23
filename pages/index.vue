@@ -1,9 +1,13 @@
 <template>
   <article>
     <div class="grid grid-cols-3 gap-2">
-      <nuxt-link v-for="doc in docs" :key="doc.id" :to="doc.path">
-        {{doc.title}}
-      </nuxt-link>
+      <div v-for="doc in docs" :key="doc.id">
+        <nuxt-link :to="doc.path">
+
+        <article-image :name="doc.image" alt="サンプル画像"/>
+          {{doc.title}}
+        </nuxt-link>
+      </div>
     </div>
   </article>
 </template>

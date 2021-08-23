@@ -28,7 +28,7 @@ export default {
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: false,
+  components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -38,6 +38,7 @@ export default {
     '@nuxtjs/tailwindcss',
     'nuxt-vite',
     '@nuxtjs/composition-api/module',
+    '@nuxt/image',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -67,4 +68,9 @@ export default {
       ]
     }
   },
+  image: {
+    domains: [
+      'blog-nuxt.vercel.app'
+    ]
+  }
 }
