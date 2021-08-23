@@ -67,10 +67,5 @@ export default {
         ...files.map(file => file.path),
       ]
     }
-  },
-  image: {
-    domains: [
-      'blog-nuxt.vercel.app'
-    ]
   }
 }
