@@ -1,6 +1,6 @@
 <template>
   <article>
-    <div class="grid grid-cols-3 gap-2">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2">
       <div v-for="doc in docs" :key="doc.id">
         <nuxt-link :to="doc.path">
 
@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import {  defineComponent,useContext,ref , onMounted } from '@nuxtjs/composition-api'
+import {  defineComponent,useContext, ref, onMounted } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
