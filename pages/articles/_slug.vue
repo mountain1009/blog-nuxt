@@ -18,23 +18,23 @@ export default defineComponent({
     const doc = ref({})
 
     onMounted(async ()=>{
-      doc.value = await $content(`articles/${route.value.params.slug}`).fetch()
-      title.value = doc.value.title
+      doc.value = await $content(`articles/${route.value.params.slug}`).fetch() as any
+      title.value = (doc.value as any).title
       meta.value = [
         {
           hid: 'og:description',
           property: 'og:description',
-          content: doc.value.description,
+          content: (doc.value as any).description,
         },
         {
           hid: 'og:url',
           property: 'og:url',
-          content: doc.value.path,
+          content: (doc.value as any).path,
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `/${doc.value.image}`,
+          content: `/${(doc.value as any).image}`,
         },
       ]
     })
