@@ -1,9 +1,8 @@
 <template>
   <article>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2">
-      <div v-for="doc in docs" :key="doc.id">
+      <div class="text-center" v-for="doc in docs" :key="doc.id">
         <nuxt-link :to="doc.path">
-
         <article-image :name="doc.image" alt="サンプル画像"/>
           {{doc.title}}
         </nuxt-link>

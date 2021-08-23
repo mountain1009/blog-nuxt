@@ -14,7 +14,8 @@
     "@nuxt/content": "^1.14.0",
     "@nuxtjs/composition-api": "^0.27.0",
     "core-js": "^3.16.2",
-    "nuxt": "^2.15.8"
+    "nuxt": "^2.15.8",
+    "vue-scrollto": "^2.20.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.0",
