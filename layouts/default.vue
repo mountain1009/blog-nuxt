@@ -1,7 +1,7 @@
 <template>
   <main class='min-h-screen relative'>
     <Header/>
-    <Nuxt class='max-w-7xl  mx-auto'/>
+    <Nuxt class='max-w-7xl mx-auto pt-20'/>
   </main>
 </template>
 

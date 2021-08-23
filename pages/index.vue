@@ -22,7 +22,6 @@ export default defineComponent({
 
     onMounted(async ()=>{
       docs.value = await $content("articles").fetch()
-      console.log(docs.value)
     })
 
     return { docs }
