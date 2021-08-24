@@ -1,20 +1,21 @@
 <template>
-  <article>
-    <div class="text-center">
-      <h2>目次</h2>
-      <ul>
-        <li v-for="(toc, i) in doc.toc" :key="i">
-          <nuxt-link
-            v-scroll-to="`#${toc.id}`"
-            to
-          >
-            {{ toc.text }}
+  <div>
+    <article class="flex justify-between">
+      <nuxt-content class="px-3 flex-grow w-auto" :document="doc" />
+      <TableOfContents class="p-10 hidden md:inline-block" :tocs="doc.toc"/>
+    </article>
+    <div>
+      <h2 class="text-lg">最近の記事</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-2">
+        <div class="text-center" v-for="doc in docs" :key="doc.id">
+          <nuxt-link :to="doc.path">
+            <article-image :name="doc.image" alt="サンプル画像"/>
+            {{doc.title}}
           </nuxt-link>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
-    <nuxt-content class="px-3" :document="doc" />
-  </article>
+  </div>
 </template>
 
 <script lang="ts">
@@ -28,6 +29,9 @@ export default defineComponent({
     const {$content} = useContext()
 
     const doc = ref({})
+
+    const docs = ref<unknown>([])
+
 
     onMounted(async ()=>{
       doc.value = await $content(`articles/${route.value.params.slug}`).fetch() as any
@@ -49,9 +53,10 @@ export default defineComponent({
           content: `/${(doc.value as any).image}`,
         },
       ]
+      docs.value = await $content("articles").limit(10).fetch()
     })
 
-    return { doc }
+    return { doc, docs }
   },
 })
 </script>

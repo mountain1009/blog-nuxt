@@ -1,6 +1,6 @@
 <template>
   <main class='min-h-screen relative'>
-    <Header/>
+    <Header class="z-10 fixed "/>
     <Nuxt class='max-w-7xl mx-auto pt-20'/>
   </main>
 </template>

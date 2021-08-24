@@ -14,13 +14,21 @@ image: $i.jpg
 
 <article-image name="$i.jpg" alt="サンプル画像"></article-image>
 
-## こんにちは
+## xxxxxxxxxxxxxxxxxxな話
 - a
 - a
 - ra
 -
 ### hello !!
-## こんにちは1
+
+aaaa
+test
+
+
+aaaaaaaaaaaa
+aaaass
+
+## xxxxxxxxxxxxxxxxxxな話
 ### hello !!
 - a
 - a
@@ -41,49 +49,5 @@ image: $i.jpg
 - a
 - ra
 ## こんにちは6
-### hello !!
-- a
-- a
-- ra
-## こんにちは7
-### hello !!
-- a
-- a
-- ra
-## こんにちは8
-### hello !!
-- a
-- a
-- ra
-## こんにちは9
-### hello !!
-- a
-- a
-- ra
-## こんにちは10
-### hello !!
-- a
-- a
-- ra
-## こんにちは11
-### hello !!
-- a
-- a
-- ra
-## こんにちは12
-### hello !!
-- a
-- a
-- ra
-## こんにちは13
-### hello !!
-- a
-- a
-- ra
-## こんにちは14
-### hello !!
-- a
-- a
-- ra
 EOF
 done
