@@ -17,3 +17,17 @@ export default defineComponent({
 })
 </script>
 
+<style scoped>
+
+.page-enter-active {
+  transition: opacity 0.25s ease-out;
+}
+.page-leave-active {
+  transition: opacity 0.25s ease-in;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+</style>

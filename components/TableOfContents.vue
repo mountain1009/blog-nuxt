@@ -17,7 +17,7 @@
           class="list-inside list-disc"
           :class="{ 'text-lg  text-gray-400': toc.depth === 2, 'text-sm text-gray-300': toc.depth === 3 }"
         >
-          <NuxtLink :to="`#${toc.id}`" class="scrollactive-item">
+          <NuxtLink :to="`#${toc.id}`" class="scrollactive-item truncate">
             {{ toc.text }}
           </NuxtLink>
         </li>
