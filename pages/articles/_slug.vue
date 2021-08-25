@@ -2,7 +2,7 @@
   <div>
     <article class="flex justify-between">
       <nuxt-content class="px-3 flex-grow w-auto" :document="doc" />
-      <TableOfContents class="p-10 hidden md:inline-block" v-if="doc" :tocs="doc.toc"/>
+      <TableOfContents class="p-10 hidden md:inline-block" :tocs="doc.toc"/>
     </article>
     <div>
       <h2 class="text-lg">最近の記事</h2>
@@ -35,30 +35,12 @@ export default defineComponent({
 
 
     useFetch(async ()=>{
-      doc.value = await $content(`articles/${route.value.params.slug}`).fetch() as any
+      doc.value = await $content(`articles/${route.value.params.slug}`).fetch()
       const ogpPath = $img(`${location.origin}/${(doc.value as any).image}`, { width: 100 })
       console.log(ogpPath)
       console.log(`${location.origin}/${(doc.value as any).image}`)
       title.value = (doc.value as any).title
       docs.value = await $content("articles").limit(10).fetch()
-      meta.value = [
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: (doc.value as any).description,
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: (doc.value as any).path,
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: ogpPath,
-        },
-      ]
-
       console.log(doc.value)
       console.log(docs.value)
     })
