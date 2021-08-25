@@ -5,14 +5,47 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'blog',
+    titleTemplate: '%s｜ryo hey!',
     htmlAttrs: {
-      lang: 'ja'
+      lang: 'ja',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content: 'ブログ,nuxt,ryohei,ryohey!,雑談',
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: "blog だよ"
+      },
+      {
+        property: 'og:title',
+        content: 'blog ｜ryo hey!',
+      },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: '' },
+      { property: 'og:image', content: '/1.jpg' },
+      {
+        property: 'og:site_name',
+        content: 'Leasy(リジー) ｜ryo hey!',
+      },
+      {
+        property: 'og:description',
+        content:
+          'blog だよ',
+      },
+      { property: 'twitter:card', content: 'summary_large_image' },
+      { name: 'apple-mobile-web-app-capable', content: 'yes' },
+      {
+        name: 'apple-mobile-web-app-status-bar-style',
+        content: 'black-translucent',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -25,7 +58,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~plugins/vue-scrollactive'
+    '~plugins/vue-scrollactive',
+    '~plugins/lazyload'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
