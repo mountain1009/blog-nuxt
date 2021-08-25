@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import {  defineComponent,useContext ,ref, useStatic,useRoute,useMeta } from '@nuxtjs/composition-api'
+import {  defineComponent,useContext ,ref, useFetch,useRoute,useMeta } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   head:{
@@ -28,9 +28,9 @@ export default defineComponent({
     const route = useRoute()
     const { title } = useMeta()
     const {$content, $img} = useContext()
-    const doc = ref(null)
+    const doc = ref({})
     const docs = ref<unknown>([])
-    useStatic(async ()=>{
+    useFetch(async ()=>{
       const slug = route.value.params.slug
       console.log(slug)
       doc.value = await $content(`articles/${slug}`).fetch()
