@@ -1,6 +1,6 @@
 <template>
   <div>
-    <article class="flex justify-between">
+    <article class="flex justify-between" v-if="doc">
       <nuxt-content class="px-3 flex-grow w-auto" :document="doc" />
       <TableOfContents class="p-10 hidden md:inline-block" :tocs="doc.toc"/>
     </article>
@@ -42,23 +42,6 @@ export default defineComponent({
       console.log(route.value)
       title.value = (doc.value as any).title
       console.log(meta.value)
-      meta.value = [
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: (doc.value as any).description,
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: (doc.value as any).path,
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: ogpPath,
-        },
-      ]
       console.log(meta.value)
       docs.value = await $content("articles").limit(10).fetch()
     })
