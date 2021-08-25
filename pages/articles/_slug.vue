@@ -22,8 +22,6 @@
 import {  defineComponent,useContext ,ref, useFetch,useRoute,useMeta } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  head:{
-  },
   setup() {
     const route = useRoute()
     const { title } = useMeta()
@@ -32,17 +30,13 @@ export default defineComponent({
     const docs = ref<unknown>([])
     useFetch(async ()=>{
       const slug = route.value.params.slug
-      console.log(slug)
       doc.value = await $content(`articles/${slug}`).fetch()
       const ogpPath = $img(`${location.origin}/${(doc.value as any).image}`, { width: 100 })
-      console.log(ogpPath)
       console.log(`${location.origin}/${(doc.value as any).image}`)
+      console.log(ogpPath)
       title.value = (doc.value as any).title
       docs.value = await $content("articles").limit(10).fetch()
-      console.log(doc.value)
-      console.log(docs.value)
     })
-
     return { doc, docs }
   },
 })
