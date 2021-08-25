@@ -39,11 +39,25 @@ export default defineComponent({
       const ogpPath = $img(`${location.origin}/${(doc.value as any).image}`, { width: 100 })
       console.log(ogpPath)
       console.log(`${location.origin}/${(doc.value as any).image}`)
-      console.log(route.value)
       title.value = (doc.value as any).title
-      console.log(meta.value)
-      console.log(meta.value)
       docs.value = await $content("articles").limit(10).fetch()
+      meta.value = [
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: (doc.value as any).description,
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: (doc.value as any).path,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: ogpPath,
+        },
+      ]
     })
 
     return { doc, docs }
