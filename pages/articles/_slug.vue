@@ -1,8 +1,8 @@
 <template>
   <div>
-    <article class="flex justify-between" v-if="doc">
+    <article class="flex justify-between">
       <nuxt-content class="px-3 flex-grow w-auto" :document="doc" />
-      <TableOfContents class="p-10 hidden md:inline-block" :tocs="doc.toc"/>
+      <TableOfContents class="p-10 hidden md:inline-block" v-if="doc" :tocs="doc.toc"/>
     </article>
     <div>
       <h2 class="text-lg">最近の記事</h2>
@@ -58,6 +58,9 @@ export default defineComponent({
           content: ogpPath,
         },
       ]
+
+      console.log(doc.value)
+      console.log(docs.value)
     })
 
     return { doc, docs }

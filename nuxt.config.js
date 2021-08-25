@@ -102,6 +102,7 @@ export default {
   build: {
   },
   generate: {
+    interval: 100,
     async routes () {
       const { $content } = require('@nuxt/content')
       const files = await $content('articles').fetch()
