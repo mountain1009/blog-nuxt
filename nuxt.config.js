@@ -80,6 +80,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    '@nuxtjs/sitemap'
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
@@ -87,6 +88,15 @@ export default {
 
   vite: {
     ssr: false,
+  },
+  sitemap: {
+    hostname: 'https://blog-nuxt.vercel.app',
+    routes: async () => {
+      const { $content } = require('@nuxt/content')
+      const articles = await $content('articles').fetch()
+
+      return articles.map(article => article.path)
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

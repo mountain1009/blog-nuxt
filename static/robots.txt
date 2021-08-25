@@ -1,0 +1,2 @@
+User-Agent:*
+Sitemap:https://blog-nuxt.vercel.app/sitemap.xml
