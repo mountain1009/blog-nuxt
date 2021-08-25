@@ -19,23 +19,21 @@
 </template>
 
 <script lang="ts">
-import {  defineComponent,useContext ,ref, useFetch,useRoute,useMeta } from '@nuxtjs/composition-api'
+import {  defineComponent,useContext ,ref, useStatic,useRoute,useMeta } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   head:{
   },
   setup() {
     const route = useRoute()
-    const { title, meta } = useMeta()
+    const { title } = useMeta()
     const {$content, $img} = useContext()
-
     const doc = ref(null)
-
     const docs = ref<unknown>([])
-
-
-    useFetch(async ()=>{
-      doc.value = await $content(`articles/${route.value.params.slug}`).fetch()
+    useStatic(async ()=>{
+      const slug = route.value.params.slug
+      console.log(slug)
+      doc.value = await $content(`articles/${slug}`).fetch()
       const ogpPath = $img(`${location.origin}/${(doc.value as any).image}`, { width: 100 })
       console.log(ogpPath)
       console.log(`${location.origin}/${(doc.value as any).image}`)
