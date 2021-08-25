@@ -22,11 +22,12 @@
 import {  defineComponent,useContext ,ref, onMounted,useRoute,useMeta } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  head:{},
+  head:{
+  },
   setup() {
     const route = useRoute()
     const { title,meta } = useMeta()
-    const {$content} = useContext()
+    const {$content, $img} = useContext()
 
     const doc = ref({})
 
@@ -35,7 +36,12 @@ export default defineComponent({
 
     onMounted(async ()=>{
       doc.value = await $content(`articles/${route.value.params.slug}`).fetch() as any
+      const ogpPath = $img(`${location.origin}/${(doc.value as any).image}`, { width: 100 })
+      console.log(ogpPath)
+      console.log(`${location.origin}/${(doc.value as any).image}`)
+      console.log(route.value)
       title.value = (doc.value as any).title
+      console.log(meta.value)
       meta.value = [
         {
           hid: 'og:description',
@@ -50,7 +56,7 @@ export default defineComponent({
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `/${(doc.value as any).image}`,
+          content: ogpPath,
         },
       ]
       docs.value = await $content("articles").limit(10).fetch()
