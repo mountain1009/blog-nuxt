@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import {  defineComponent,useContext, ref, onMounted } from '@nuxtjs/composition-api'
+import {  defineComponent,useContext, ref, useFetch } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   head:{},
@@ -22,7 +22,7 @@ export default defineComponent({
     const {$content} = useContext()
     const docs = ref<unknown>([])
 
-    onMounted(async ()=>{
+    useFetch(async ()=>{
       docs.value = await $content("articles").fetch()
     })
 

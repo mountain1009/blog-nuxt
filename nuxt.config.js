@@ -30,7 +30,6 @@ export default {
       },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: '' },
-      { property: 'og:image', content: '/1.jpg' },
       {
         property: 'og:site_name',
         content: 'Leasy(リジー) ｜ryo hey!',
