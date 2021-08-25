@@ -29,7 +29,7 @@ export default defineComponent({
     const { title, meta } = useMeta()
     const {$content, $img} = useContext()
 
-    const doc = ref({})
+    const doc = ref(null)
 
     const docs = ref<unknown>([])
 
