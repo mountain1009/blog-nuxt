@@ -79,7 +79,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/pwa',
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
@@ -111,5 +112,13 @@ export default {
         ...files.map(file => file.path),
       ]
     }
-  }
+  },
+  pwa: {
+    manifest: {
+      lang: 'en'
+    },
+    workbox: {
+      dev: true, //開発環境でもPWAできるように
+    }
+  },
 }
